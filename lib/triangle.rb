@@ -20,11 +20,11 @@ class Triangle
 
   def validate_triangle
     if (a + b <= c) || (a + c <= b) || (b + c <= a) || (a <= 0) || (b <= 0) || (c <= 0)
-      begin
+      # begin
         raise TriangleError
-      rescue TriangleError => error
-          puts error.message
-      end
+      # rescue TriangleError => error
+          # puts error.message
+      # end
     end
   end
 
