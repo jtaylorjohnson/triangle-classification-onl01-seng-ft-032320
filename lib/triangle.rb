@@ -25,7 +25,7 @@ class Triangle
   end
   
   def valid? 
-    if self.side1 + self.side2 > self.side3 or :side1 + :side3 > :side2 or :side2 + :side3 > :side1 && :side1 != 0 && :side2 != 0 && :side3 != 0
+    if self.side1 + self.side2 > self.side3 or self.side1 + self.side3 > self.side2 or self.side2 + self.side3 > self.side1 && self.side1 != 0 && self.side2 != 0 && self.side3 != 0
     end
   end
   
