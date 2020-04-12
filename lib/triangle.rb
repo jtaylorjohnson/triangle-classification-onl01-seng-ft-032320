@@ -10,8 +10,12 @@ class Triangle
   
   def kind
     if self.valid? != true 
-      
-      if :side1 = :side2 = :side3 
+      begin
+        raise TriangleError
+      rescue TriangleError => error
+          puts error.message
+      end
+      elsif :side1 = :side2 = :side3 
       :equilateral
       elsif :side1 = :side2 or :side1 = :side3 or :side2 = :side3
       :isosceles
@@ -27,7 +31,9 @@ class Triangle
   end
   
   class TriangleError < StandardError
-    
+    def message
+      "Invalid Triangle"
+    end
   end
 
 end
