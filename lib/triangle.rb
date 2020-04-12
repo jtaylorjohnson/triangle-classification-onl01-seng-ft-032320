@@ -15,7 +15,7 @@ class Triangle
       rescue TriangleError => error
           puts error.message
       end
-    elsif :side1 == :side2 == :side3 
+    elsif :side1 == :side2 && :side2 == :side3 
       :equilateral
     elsif :side1 == :side2 or :side1 == :side3 or :side2 == :side3
       :isosceles
@@ -25,8 +25,8 @@ class Triangle
   end
   
   def valid? 
-    if :side1 + :side2 > :side3 or :side1 + :side3 > :side2 or :side2 + :side3 > :side1 
-    && :side1 != 0, :side2 != 0, :side3 != 0
+    if :side1 + :side2 > :side3 or :side1 + :side3 > :side2 or :side2 + :side3 > :side1 && :side1 != 0 && :side2 != 0 && :side3 != 0
+    end
   end
   
   class TriangleError < StandardError
