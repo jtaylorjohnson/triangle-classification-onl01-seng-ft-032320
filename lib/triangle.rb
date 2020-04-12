@@ -31,8 +31,8 @@ class Triangle
   end
 
 
-  class TriangleError < StandardError
-    puts "error"
-  end
+class TriangleError < StandardError
+  puts "error"
+end
 
 end
