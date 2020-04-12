@@ -11,7 +11,7 @@ class Triangle
   def kind
     if :side1 = :side2 = :side3 
     :equilateral
-    If :side1 = :side2 or :side1 = :side3 or :side2 = :side3
+    elsif :side1 = :side2 or :side1 = :side3 or :side2 = :side3
     :isosceles
     If :side1 != :side2, :side1 != :side3, :side2 != :side3
     :scalene
