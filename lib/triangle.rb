@@ -1,38 +1,29 @@
 class Triangle
-  
-  attr_accessor :side1, :side2, :side3, :equilateral, :isosceles, :scalene
-  
-  def initialize(side1, side2, side3)
-    side1 = @side1
-    side2 = @side2
-    side3 = @side3
+  attr_reader :a, :b, :c
+
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
-  
+
   def kind
-    if self.valid? != true 
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-          puts error.message
-      end
-    elsif @side1 == @side2 && @side2 == @side3 
+    validate_triangle
+    if a == b && b == c
       :equilateral
-    elsif @side1 == @side2 or @side1 == @side3 or @side2 == @side3
+    elsif a == b || b == c || a == c
       :isosceles
-    elsif @side1 != @side2 && @side1 != @side3 && @side2 != @side3
+    else
       :scalene
     end
   end
-  
-  def valid?
-    if ((side1 + side2 > side3) || (side1 + side3 > side2) || (side2 + side3 > side1)) && side1 >= 0 && side2 >= 0 && side3 >= 0
-    end
-  end
-  
-  class TriangleError < StandardError
-    def message
-      "Invalid Triangle"
-    end
-  end
 
+  def validate_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
+  end
+end
+
+class TriangleError < StandardError
 end
