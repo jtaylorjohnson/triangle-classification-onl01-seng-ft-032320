@@ -9,7 +9,7 @@ class Triangle
   end
   
   def kind
-    if valid? != true 
+    if self.valid? != true 
       begin
         raise TriangleError
       rescue TriangleError => error
@@ -24,7 +24,7 @@ class Triangle
     end
   end
   
-  def self.valid?
+  def valid?
     if (@side1+@side2 > @side3) || (@side1+@side3 > @side2) || (@side2+@side3 > @side1) && @side1 >= 0 && @side2 >= 0 && @side3 >= 0
     end
   end
