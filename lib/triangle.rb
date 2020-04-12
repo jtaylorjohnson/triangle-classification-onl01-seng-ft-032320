@@ -28,8 +28,10 @@ class Triangle
           puts error.message
       end
   end
-end
 
-class TriangleError < StandardError
-  puts "error"
+
+  class TriangleError < StandardError
+    puts "error"
+  end
+
 end
